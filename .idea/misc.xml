@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Eli/AndroidStudioProjects/TextEchoApp/app/src/main/res/drawable/bg_gradient.xml" value="0.22135416666666666" />
+        <entry key="..\:/Users/Eli/AndroidStudioProjects/TextEchoApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
+        <entry key="..\:/Users/Eli/AndroidStudioProjects/TextEchoApp/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.2703125" />
         <entry key="..\:/Users/Eli/AndroidStudioProjects/TextEchoApp/app/src/main/res/drawable/splash_background.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/Eli/AndroidStudioProjects/TextEchoApp/app/src/main/res/drawable/splash_fg.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/Eli/AndroidStudioProjects/TextEchoApp/app/src/main/res/layout-land/activity_main.xml" value="0.12604166666666666" />

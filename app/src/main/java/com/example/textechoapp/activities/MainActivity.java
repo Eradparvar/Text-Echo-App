@@ -23,31 +23,44 @@ public class MainActivity extends AppCompatActivity {
     private TextView textViewEntriesList;
     private Editable userInput;
     private TextView headerEntriesList;
+    private TextView textView;
+    private TextInputEditText textInputEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        setupToolbar();
+        setupFields();
+        setupFAB();
+    }
+
+    private void setupFAB() {
         ExtendedFloatingActionButton fab = findViewById(R.id.fab);
-        TextView textView = findViewById(R.id.textViewEchoText);
-        TextInputEditText textInputEditText = findViewById(R.id.textInputEditText);
-
-        headerEntriesList = findViewById(R.id.headerEntriesList);
-        textViewEntriesList = findViewById(R.id.entriesList);
-        mUserEntryList = new UserEntryList();
-        textViewEntriesList.setText(mUserEntryList.getUserEntriesListAsString());
-
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 userInput = textInputEditText.getText();
-                textView.setText(userInput);
                 mUserEntryList.addEntryToList(userInput.toString());
                 textViewEntriesList.setText(mUserEntryList.getUserEntriesListAsString());
+                textView.setText(mUserEntryList.getLastUserEntry());
+
             }
         });
+    }
+
+    private void setupFields() {
+        textView = findViewById(R.id.textViewEchoText);
+        textInputEditText = findViewById(R.id.textInputEditText);
+        headerEntriesList = findViewById(R.id.headerEntriesList);
+        textViewEntriesList = findViewById(R.id.entriesList);
+        mUserEntryList = new UserEntryList();
+        textViewEntriesList.setText(mUserEntryList.getUserEntriesListAsString());
+    }
+
+    private void setupToolbar() {
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
     }
 
     private void toggleDisplayEntries() {
@@ -103,17 +116,17 @@ public class MainActivity extends AppCompatActivity {
         item.setChecked(!item.isChecked());
     }
 
-
-    //ToDo
-//    override onSaveInstanceState and onRestoreInstanceState to preserve the EntryList field object using GSON and
-//    to preserve the show/hide entries history state by saving/restoring the boolean field above.
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
+        outState.putBoolean("mShowHistory", mShowHistory);
+        outState.putString("userEntryList", mUserEntryList.getJSONStringFromThis());
         super.onSaveInstanceState(outState);
     }
 
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        mShowHistory = savedInstanceState.getBoolean("mShowHistory");
+        mUserEntryList = UserEntryList.getEchoListObjectFromJSON(savedInstanceState.getString("userEntryList"));
         super.onRestoreInstanceState(savedInstanceState);
     }
 }

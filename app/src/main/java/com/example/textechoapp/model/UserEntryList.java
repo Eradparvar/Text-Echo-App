@@ -1,8 +1,10 @@
 package com.example.textechoapp.model;
+
+import androidx.annotation.NonNull;
+
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
-import androidx.annotation.NonNull;
 
 public class UserEntryList
 {
