@@ -7,6 +7,7 @@
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
+
     <!--#1 #2-->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
@@ -26,6 +27,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Eli's Echo App" />
+
+    <TextView
+        android:id="@+id/headerEntriesList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Entries List"
+        android:textStyle="bold"
+        android:freezesText="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/entriesList"
+        android:freezesText="true"
+        />
+
+
 
 
 </LinearLayout>
