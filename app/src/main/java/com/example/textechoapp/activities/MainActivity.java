@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean mShowHistory;
     private TextView textViewEntriesList;
     private Editable userInput;
+    private TextView headerEntriesList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         TextView textView = findViewById(R.id.textView);
         TextInputEditText textInputEditText = findViewById(R.id.textInputEditText);
 
-
+        headerEntriesList = findViewById(R.id.headerEntriesList);
         textViewEntriesList = findViewById(R.id.entriesList);
         mUserEntryList = new UserEntryList();
         textViewEntriesList.setText(mUserEntryList.getUserEntriesListAsString());
@@ -44,16 +45,18 @@ public class MainActivity extends AppCompatActivity {
                 userInput = textInputEditText.getText();
                 textView.setText(userInput);
                 mUserEntryList.addEntryToList(userInput.toString());
-                displayEntries();
+                textViewEntriesList.setText(mUserEntryList.getUserEntriesListAsString());
             }
         });
     }
 
-    private void displayEntries() {
+    private void toggleDisplayEntries() {
         if (mShowHistory) {
-            textViewEntriesList.setText(mUserEntryList.getUserEntriesListAsString());
+            textViewEntriesList.setVisibility(View.VISIBLE);
+            headerEntriesList.setVisibility(View.VISIBLE);
         } else if (!mShowHistory) {
-            textViewEntriesList.setText("");
+            textViewEntriesList.setVisibility(View.INVISIBLE);
+            headerEntriesList.setVisibility(View.INVISIBLE);
 
         }
     }
@@ -61,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         menu.findItem(R.id.action_display_prior_entries).setChecked(mShowHistory);
-        displayEntries();
+        toggleDisplayEntries();
         return super.onPrepareOptionsMenu(menu);
     }
 
@@ -79,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_display_prior_entries) {
             toggleMenuItem(item);
             mShowHistory = item.isChecked();
-            displayEntries();
+            toggleDisplayEntries();
             return true;
 
         } else if (id == R.id.action_about) {
@@ -89,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
 
         } else if (id == R.id.action_clear_prior_entries) {
             mUserEntryList.clearUserEntries();
-            textViewEntriesList.setText("");
+            textViewEntriesList.setText(mUserEntryList.getUserEntriesListAsString());
             return true;
 
         }

@@ -3,30 +3,35 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
+    android:gravity="center|top"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
 
-    <!--#1 #2-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please enter in text"
+        android:layout_margin="25dp"/>
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Please enter text here">
+        android:layout_width="250dp"
+        android:layout_height="wrap_content">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textInputEditText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:background="?android:colorBackground"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!--    #4 -->
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Eli's Echo App" />
+        android:text="Eli's Echo App"
+        android:layout_margin="15dp"/>
 
     <TextView
         android:id="@+id/headerEntriesList"
@@ -41,6 +46,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/entriesList"
         android:freezesText="true"
+
         />
 
 
