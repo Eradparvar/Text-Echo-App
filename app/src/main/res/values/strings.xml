@@ -13,5 +13,8 @@
     <string name="clear_prior_entries">Clear Prior Entries</string>
     <string name="about">About</string>
     <string name="about_text">Eli Radparvar - MCON 521 - Fall \'21</string>
+    <string name="please_enter_in_text">Please enter in text</string>
+    <string name="defaultEchoText">Eli\'s Echo App</string>
+    <string name="HeaderEntriesList">Entries List</string>
 
 </resources>

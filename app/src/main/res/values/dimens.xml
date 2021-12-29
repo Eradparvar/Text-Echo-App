@@ -1,3 +1,11 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="defaultmarginLarge">25dp</dimen>
+    <dimen name="inputTextWidth">250dp</dimen>
+    <dimen name="defaultMarginMedium">15dp</dimen>
+    <dimen name="slimMargin">5dp</dimen>
+    <dimen name="fabMarginFromBottom">50dp</dimen>
+    <dimen name="topMarginEchoText">150dp</dimen>
+    <dimen name="marginHeaderEntriesList">150dp</dimen>
+    <dimen name="marginEntriesList">200dp</dimen>
 </resources>

@@ -1,55 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center|top"
-    android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
 
     <TextView
+        android:id="@+id/textViewPleaseEnterText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Please enter in text"
-        android:layout_margin="25dp"/>
+        android:layout_marginTop="@dimen/defaultmarginLarge"
+        android:text="@string/please_enter_in_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content">
+        android:layout_width="@dimen/inputTextWidth"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/defaultmarginLarge"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPleaseEnterText">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textInputEditText"
-            android:layout_width="match_parent"
+            android:layout_width="@dimen/inputTextWidth"
             android:layout_height="wrap_content"
-            android:background="?android:colorBackground"/>
+            android:background="?android:colorBackground"
+            android:textAlignment="center"
+            android:gravity="center_horizontal" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textViewEchoText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Eli's Echo App"
-        android:layout_margin="15dp"/>
+        android:layout_marginTop="@dimen/topMarginEchoText"
+        android:gravity="center_horizontal"
+        android:text="@string/defaultEchoText"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/headerEntriesList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Entries List"
+        android:layout_marginTop="@dimen/marginHeaderEntriesList"
+        android:freezesText="true"
+        android:text="@string/HeaderEntriesList"
         android:textStyle="bold"
-        android:freezesText="true"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPleaseEnterText" />
 
     <TextView
+        android:id="@+id/entriesList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/entriesList"
+        android:textAlignment="center"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="@dimen/marginEntriesList"
         android:freezesText="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPleaseEnterText"
+         />
 
-        />
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/fabMarginFromBottom"
+        android:backgroundTint="@color/colorAccent"
+        android:text="Copy"
+        app:icon="@android:drawable/ic_media_play"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
-
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

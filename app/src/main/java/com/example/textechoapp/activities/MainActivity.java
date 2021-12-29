@@ -19,7 +19,7 @@ import com.google.android.material.textfield.TextInputEditText;
 
 public class MainActivity extends AppCompatActivity {
     private UserEntryList mUserEntryList;
-    private boolean mShowHistory;
+    private boolean mShowHistory = true;
     private TextView textViewEntriesList;
     private Editable userInput;
     private TextView headerEntriesList;
@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ExtendedFloatingActionButton fab = findViewById(R.id.fab);
-        TextView textView = findViewById(R.id.textView);
+        TextView textView = findViewById(R.id.textViewEchoText);
         TextInputEditText textInputEditText = findViewById(R.id.textInputEditText);
 
         headerEntriesList = findViewById(R.id.headerEntriesList);
